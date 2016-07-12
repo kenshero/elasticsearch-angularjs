@@ -1,11 +1,10 @@
-var myApp = angular.module('listdata', ['elasticsearch']);
+var myApp = angular.module('shop', ['elasticsearch']);
 
-myApp.controller('ListController',['$scope','es',function($scope,es){
+myApp.controller('ShopController',['$scope','es',function($scope,es){
 
   GetAllData();
 
   function GetAllData(){
-
     es.search({
     index: 'shop',
     body: {
@@ -15,8 +14,8 @@ myApp.controller('ListController',['$scope','es',function($scope,es){
         }
     }
     }).then(function (response) {
-        $scope.list_user = response.hits.hits;
-        console.log($scope.list_user);
+        $scope.products = response.hits.hits;
+        console.log($scope.products);
     });
   }
 
@@ -33,8 +32,8 @@ myApp.controller('ListController',['$scope','es',function($scope,es){
       }
     }
     }).then(function (response) {
-      $scope.list_user = response.hits.hits;
-      console.log($scope.list_user);
+      $scope.products = response.hits.hits;
+      console.log($scope.products);
     });
   }
 
@@ -71,6 +70,7 @@ myApp.controller('ListController',['$scope','es',function($scope,es){
 
   }
 
+  ////// example edit if you want/////////
   // edit = function(){
   //   es.update({
   //     index: 'development_testarrayauthors',

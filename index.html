@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="listdata">
+<html ng-app="shop">
   <head>
     <meta charset="UTF-8" />
     <script src="js/angular.min.js"></script>
@@ -8,7 +8,7 @@
 
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
   </head>
-  <body ng-controller="ListController as List ">
+  <body ng-controller="ShopController">
     <div class="jumbotron">
       <div class="container">
 
@@ -80,14 +80,14 @@
             <th>Tools</th>
           </thead>
           <tbody>
-            <tr ng-repeat="list in list_user">
+            <tr ng-repeat="product in products">
               <td>{{$index +1 }}</td>
-              <td>{{list._source.product_name}}</td>
-              <td>{{list._source.price}}</td>
-              <td>{{list._source.tags}}</td>
-              <td>{{list._source.place}}</td>
+              <td>{{product._source.product_name}}</td>
+              <td>{{product._source.price}}</td>
+              <td>{{product._source.tags}}</td>
+              <td>{{product._source.place}}</td>
               <td>
-                <button class="btn btn-danger" ng-click="DeleteData(list._id)">Delete</button>
+                <button class="btn btn-danger" ng-click="DeleteData(product._id)">Delete</button>
               </td>
             </tr>
           </tbody>
